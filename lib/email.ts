@@ -2,7 +2,7 @@ import 'server-only';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const FROM = process.env.EMAIL_FROM || 'noreply@example.com';
+const FROM = process.env.EMAIL_FROM || 'onboarding@resend.dev';
 const APP_URL = process.env.APP_URL || 'http://localhost:3000';
 
 export async function sendPasswordResetEmail(
@@ -30,6 +30,7 @@ export async function sendAffiliateInviteEmail(
   email: string,
   inviteCode: string
 ) {
+  console.log(FROM);
   const url = `${APP_URL}/signup?invite=${encodeURIComponent(inviteCode)}`;
   await resend.emails.send({
     from: FROM,

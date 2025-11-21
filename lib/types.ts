@@ -2,6 +2,7 @@ export type Role = 'affiliate' | 'admin';
 
 export type User = {
   id: string;
+  fullName: string;
   email: string;
   passwordHash: string;
   role: Role;
